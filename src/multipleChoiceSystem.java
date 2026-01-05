@@ -5,7 +5,7 @@ public class multipleChoiceSystem {
 
         Scanner sc = new Scanner(System.in);
 
-        String[] answers = {"c)", "a)", "b)"};
+        String[] answers = {"c", "a", "b"};
         String[] response = {"", "", ""};
         System.out.println("What is 45 x 9?");
         System.out.println("a) 398");
@@ -29,8 +29,13 @@ public class multipleChoiceSystem {
         response[1] = sc.next();
         response[2] = sc.next();
 
-        System.out.println(response[0]);
-        System.out.println(response[1]);
-        System.out.println(response[2]);
+        int score = 0;
+
+        for(int i = 0; i < 3; i++) {
+            if(response[i].equalsIgnoreCase(answers[i])) {
+                score++;
+            }
+        }
+        System.out.println("Score: " + score + "/3");
     }
 }
