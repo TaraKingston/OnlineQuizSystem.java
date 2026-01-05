@@ -4,6 +4,9 @@ public class multipleChoiceSystem {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
+        String[] answers = {"c)", "a)", "b)"};
+        String[] response = {"", "", ""};
         System.out.println("What is 45 x 9?");
         System.out.println("a) 398");
         System.out.println("b) 456");
@@ -22,8 +25,12 @@ public class multipleChoiceSystem {
         System.out.println("c) 398");
         System.out.println("d) 456");
 
-        sc.next();
-        sc.next();
-        sc.next();
+        response[0] = sc.next();
+        response[1] = sc.next();
+        response[2] = sc.next();
+
+        System.out.println(response[0]);
+        System.out.println(response[1]);
+        System.out.println(response[2]);
     }
 }
