@@ -14,17 +14,22 @@ public class Login extends JFrame{
         image.setBounds(0, 0, 600, 500);
         add(image);
 
-        JLabel heading = new JLabel("Simple Minds");
-        heading.setBounds(750, 60, 300, 45);
-        heading.setFont(new Font("Montserrat", Font.BOLD, 35));
+        JLabel heading = new JLabel("The Quiz!");
+        heading.setBounds(775, 60, 300, 45);
+        heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 55));
         heading.setForeground(new Color(82, 98, 103));
         add(heading);
 
         JLabel name = new JLabel("Enter your name");
         name.setBounds(810, 150, 300, 20);
-        name.setFont(new Font("Mongolian Bait", Font.BOLD, 16));
+        name.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
         name.setForeground(new Color(82, 98, 103));
         add(name);
+
+        JTextField tfname = new JTextField();
+        tfname.setBounds(735, 200, 300, 25);
+        tfname.setFont(new Font("Arial", Font.BOLD, 20));
+        add(tfname);
 
         setSize(1200, 500);
         setLocation(200, 150);
