@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class Login extends JFrame implements ActionListener {
 
     JButton rules, back;
+    JTextField tfname;
     Login() {
         getContentPane().setBackground(new Color(55, 40, 95));
         setLayout(null);
@@ -28,7 +29,7 @@ public class Login extends JFrame implements ActionListener {
         name.setForeground(Color.green);
         add(name);
 
-        JTextField tfname = new JTextField();
+        tfname = new JTextField();
         tfname.setBounds(735, 200, 300, 25);
         tfname.setFont(new Font("Arial", Font.BOLD, 20));
         add(tfname);
@@ -56,7 +57,9 @@ public class Login extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == rules) {
-
+            String name = tfname.getText();
+            setVisible(false);
+            new Rules(name);
         } else if (ae.getSource() == back) {
             setVisible(false);
         }
