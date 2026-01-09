@@ -2,9 +2,11 @@ package quizApp;
 import java.net.URL;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Login extends JFrame{
+public class Login extends JFrame implements ActionListener {
 
+    JButton rules, back;
     Login() {
         getContentPane().setBackground(Color.BLUE);
         setLayout(null);
@@ -31,9 +33,33 @@ public class Login extends JFrame{
         tfname.setFont(new Font("Arial", Font.BOLD, 20));
         add(tfname);
 
+        rules = new JButton("Rules");
+        rules.setBounds(735, 270, 120, 25);
+        rules.setBackground(new Color(30, 144, 254));
+        rules.setForeground(Color.WHITE);
+        rules.addActionListener(this);
+        add(rules);
+
+        back = new JButton("Back");
+        back.setBounds(915, 270, 120, 25);
+        back.setBackground(new Color(30, 144, 254));
+        back.setForeground(Color.WHITE);
+        back.addActionListener(this);
+        add(back);
+
+
+
         setSize(1200, 500);
         setLocation(200, 150);
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == rules) {
+
+        } else if (ae.getSource() == back) {
+            setVisible(false);
+        }
     }
 
 
