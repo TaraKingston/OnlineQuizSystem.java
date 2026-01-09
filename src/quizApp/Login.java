@@ -8,7 +8,7 @@ public class Login extends JFrame implements ActionListener {
 
     JButton rules, back;
     Login() {
-        getContentPane().setBackground(Color.BLUE);
+        getContentPane().setBackground(new Color(55, 40, 95));
         setLayout(null);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz.png"));
@@ -19,13 +19,13 @@ public class Login extends JFrame implements ActionListener {
         JLabel heading = new JLabel("The Quiz!");
         heading.setBounds(775, 60, 300, 45);
         heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 55));
-        heading.setForeground(new Color(82, 98, 103));
+        heading.setForeground(Color.green);
         add(heading);
 
         JLabel name = new JLabel("Enter your name");
         name.setBounds(810, 150, 300, 20);
         name.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
-        name.setForeground(new Color(82, 98, 103));
+        name.setForeground(Color.green);
         add(name);
 
         JTextField tfname = new JTextField();
