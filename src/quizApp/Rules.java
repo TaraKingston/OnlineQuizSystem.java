@@ -38,7 +38,7 @@ public class Rules extends JFrame implements ActionListener {
         add(rules);
 
         back = new JButton("Back");
-        back.setBounds(915, 270, 120, 25);
+        back.setBounds(250, 500, 100, 30);
         back.setBackground(new Color(30, 144, 254));
         back.setForeground(Color.WHITE);
         back.addActionListener(this);
@@ -46,7 +46,7 @@ public class Rules extends JFrame implements ActionListener {
 
 
         start = new JButton("Start");
-        start.setBounds(735, 270, 120, 25);
+        start.setBounds(400, 500, 100, 30);
         start.setBackground(new Color(30, 144, 254));
         start.setForeground(Color.WHITE);
         start.addActionListener(this);
