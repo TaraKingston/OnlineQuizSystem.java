@@ -1,19 +1,25 @@
 package quizApp;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Quiz extends JFrame {
+public class Quiz extends JFrame implements ActionListener {
     String question[][] = new String[10][5];
     String answers[][] = new String[10][5];
     String userAnswers[][] = new String[10][1];
     JLabel QNumber, questionLabel ;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
+    JButton nextButton, submit, lifeline;
+
     public static int timer = 15;
     public static int ans_given = 0;
     public static int count = 0;
+    public static int score = 0;
 
-    Quiz() {
+    String username;
+    Quiz(String username) {
+        this.username = username;
         setBounds(50, 0, 1440, 850);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -135,25 +141,28 @@ public class Quiz extends JFrame {
         groupoptions.add(opt3);
         groupoptions.add(opt4);
 
-        JButton nextButton = new JButton("Next");
+        nextButton = new JButton("Next");
         nextButton.setBounds(1100, 550, 200, 40);
         nextButton.setFont (new Font("Tahoma", Font.PLAIN, 22));
         nextButton.setBackground(new Color(30, 144, 255));
         nextButton.setForeground(Color.WHITE);
+        nextButton.addActionListener(this);
         add(nextButton);
 
-        JButton lifeline = new JButton("50 50 lifeline");
+        lifeline = new JButton("50 50 lifeline");
         lifeline.setBounds(1100, 630, 200, 40);
         lifeline.setFont (new Font("Tahoma", Font.PLAIN, 22));
         lifeline.setBackground(new Color(30, 144, 255));
         lifeline.setForeground(Color.WHITE);
+        lifeline.addActionListener(this);
         add(lifeline);
 
-        JButton submit = new JButton("Submit");
+        submit = new JButton("Submit");
         submit.setBounds(1100, 710, 200, 40);
         submit.setFont (new Font("Tahoma", Font.PLAIN, 22));
         submit.setBackground(new Color(30, 144, 255));
         submit.setForeground(Color.WHITE);
+        submit.addActionListener(this);
         submit.setEnabled(false);
         add(submit);
 
@@ -161,6 +170,60 @@ public class Quiz extends JFrame {
 
         setVisible(true);
     }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == nextButton) {
+            repaint();
+            opt1.setEnabled(true);
+            opt2.setEnabled(true);
+            opt3.setEnabled(true);
+            opt4.setEnabled(true);
+
+
+            ans_given = 1;
+            if (groupoptions.getSelection() == null) {
+                userAnswers[count][0] = "";
+            } else {
+                userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
+            }
+
+            if (count == 8) {
+                nextButton.setEnabled(false);
+                submit.setEnabled(true);
+            }
+
+            count++;
+            start(count);
+        } else if (ae.getSource() == lifeline) {
+            if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
+                opt2.setEnabled(false);
+                opt3.setEnabled(false);
+            } else {
+                opt1.setEnabled(true);
+                opt4.setEnabled(true);
+            }
+            lifeline.setEnabled(false);
+        } else if (ae.getSource() == submit) {
+            ans_given = 1;
+            if (groupoptions.getSelection() == null) {
+                userAnswers[count][0] = "";
+            } else {
+                userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
+            }
+            for (int i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i][0].equals(answers[i][1])) {
+                    score += 10;
+                } else {
+                    score += 0;
+                }
+            }
+            setVisible(false);
+            new Score(username, score)
+            //score
+        }
+
+    }
+
 
     public void paint(Graphics g) {
         super.paint(g);
@@ -190,12 +253,35 @@ public class Quiz extends JFrame {
 
         } else if (timer < 0 ) {
             timer = 15;
+            opt1.setEnabled(true);
+            opt2.setEnabled(true);
+            opt3.setEnabled(true);
+            opt4.setEnabled(true);
 
+            if (count == 8) {
+                nextButton.setEnabled(false);
+                submit.setEnabled(true);
+            }
+            if (count == 9) { // submit button
+                if (groupoptions.getSelection() == null) {
+                    userAnswers[count][0] = "";
+                } else {
+                    userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
+                }
+
+                for (int i - 0; i < userAnswers.length; i++){
+                   if (userAnswers[i][0].equals(answers[i][1])) {
+                       score += 10;
+                   } else {
+                       score += 0;
+                   }
+                } setVisible(false);
+                //score
+            } else { //next button
             if (groupoptions.getSelection() == null) {
               userAnswers[count][0] = "";
             } else {
                 userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
-
             }
             count++; //0 //1
             start(count);
@@ -209,9 +295,18 @@ public class Quiz extends JFrame {
     QNumber.setText("" + (count + 1) + ". ");
     questionLabel.setText(question[count][0]);
     opt1.setText(question[count][1]);
+    opt1.setActionCommand(question[count][1]);
+
     opt2.setText(question[count][2]);
+    opt2.setActionCommand(question[count][2]);
+
     opt3.setText(question[count][3]);
+    opt3.setActionCommand(question[count][3]);
+
     opt4.setText(question[count][4]);
+    opt4.setActionCommand(question[count][4]);
+
+    groupoptions.clearSelection();
 
     }
 
