@@ -120,6 +120,33 @@ public class Quiz extends JFrame {
         opt4.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt4);
 
+        ButtonGroup groupoptions = new ButtonGroup();
+        groupoptions.add(opt1);
+        groupoptions.add(opt2);
+        groupoptions.add(opt3);
+        groupoptions.add(opt4);
+
+        JButton nextButton = new JButton("Next");
+        nextButton.setBounds(1100, 550, 200, 40);
+        nextButton.setFont (new Font("Tahoma", Font.PLAIN, 22));
+        nextButton.setBackground(new Color(30, 144, 255));
+        nextButton.setForeground(Color.WHITE);
+        add(nextButton);
+
+        JButton lifeline = new JButton("50 50 lifeline");
+        lifeline.setBounds(1100, 630, 200, 40);
+        lifeline.setFont (new Font("Tahoma", Font.PLAIN, 22));
+        lifeline.setBackground(new Color(30, 144, 255));
+        lifeline.setForeground(Color.WHITE);
+        add(lifeline);
+
+        JButton submit = new JButton("Submit");
+        submit.setBounds(1100, 710, 200, 40);
+        submit.setFont (new Font("Tahoma", Font.PLAIN, 22));
+        submit.setBackground(new Color(30, 144, 255));
+        submit.setForeground(Color.WHITE);
+        add(submit);
+
         setVisible(true);
     }
 
