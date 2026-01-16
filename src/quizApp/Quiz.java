@@ -5,6 +5,10 @@ import java.awt.*;
 public class Quiz extends JFrame {
     String question[][] = new String[10][5];
     String answers[][] = new String[10][5];
+    JLabel QNumber, questionLabel ;
+    JRadioButton opt1, opt2, opt3, opt4;
+    public static int timer = 15;
+
     Quiz() {
         setBounds(50, 0, 1440, 850);
         getContentPane().setBackground(Color.WHITE);
@@ -15,16 +19,17 @@ public class Quiz extends JFrame {
         image.setBounds(0, 0, 1350, 350);
         add(image);
 
-        JLabel Qlabel = new JLabel("1");
-        Qlabel.setBounds(100, 450, 50, 30);
-        Qlabel.setFont (new Font("Tahoma", Font.PLAIN,24));
-        add(Qlabel);
+        QNumber = new JLabel(); //qno
+        QNumber.setBounds(100, 450, 50, 30);
+        QNumber.setFont (new Font("Tahoma", Font.PLAIN,24));
+        add(QNumber);
 
-        JLabel questionLabel = new JLabel("This is a question.");
+        questionLabel = new JLabel(); //question
         questionLabel.setBounds(150, 450, 900, 30);
         questionLabel.setFont (new Font("Tahoma", Font.PLAIN,24));
         add(questionLabel);
 
+        //questions
         question[0][0] = "What is the main purpose of using Object-Oriented Programming (OOP)?";
         question[0][1] = "To make programs run faster";
         question[0][2] = "To organise code using objects and classes";
@@ -96,25 +101,25 @@ public class Quiz extends JFrame {
         answers[8][2] = "To make maintenance and updates easier";
         answers[9][2] = "Logical thinking and patience";
 
-        JRadioButton opt1 = new JRadioButton("Option 1");
+        opt1 = new JRadioButton();
         opt1.setBounds(170, 520,700,30);
         opt1.setBackground(Color.WHITE);
         opt1.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt1);
 
-        JRadioButton opt2 = new JRadioButton("Option 1");
+        opt2 = new JRadioButton();
         opt2.setBounds(170, 560,700,30);
         opt2.setBackground(Color.WHITE);
         opt2.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt2);
 
-        JRadioButton opt3 = new JRadioButton("Option 1");
+        opt3 = new JRadioButton();
         opt3.setBounds(170, 600,700,30);
         opt3.setBackground(Color.WHITE);
         opt3.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt3);
 
-        JRadioButton opt4 = new JRadioButton("Option 1");
+        opt4 = new JRadioButton();
         opt4.setBounds(170, 640,700,30);
         opt4.setBackground(Color.WHITE);
         opt4.setFont(new Font("Dialog", Font.PLAIN,20));
@@ -145,9 +150,36 @@ public class Quiz extends JFrame {
         submit.setFont (new Font("Tahoma", Font.PLAIN, 22));
         submit.setBackground(new Color(30, 144, 255));
         submit.setForeground(Color.WHITE);
+        submit.setEnabled(false);
         add(submit);
 
+        start(0);
+
         setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        String time = "Time left " + timer + " seconds"; // 15
+        g.setColor(Color.RED);
+        g.setFont(new Font("Tahoma", Font.BOLD, 25));
+
+        if (timer > 0) {
+            g.drawString(time, 1100, 500);
+        }
+
+    }
+
+
+    public void start(int count) {
+    QNumber.setText("" + (count + 1) + ". ");
+    questionLabel.setText(question[count][0]);
+    opt1.setText(question[count][1]);
+    opt2.setText(question[count][2]);
+    opt3.setText(question[count][3]);
+    opt4.setText(question[count][4]);
+
     }
 
     public static void main(String[] args) {
