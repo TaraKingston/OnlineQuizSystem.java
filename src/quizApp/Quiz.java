@@ -26,18 +26,21 @@ public class Quiz extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(245, 247, 240));
         setLayout(null);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz.png"));
-        JLabel image = new JLabel(i1);
-        image.setBounds(0, 0, 1350, 350);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz_icon.png"));
+        Image img = i1.getImage().getScaledInstance(400, 220, Image.SCALE_SMOOTH);
+        JLabel image = new JLabel(new ImageIcon(img));
+        // Center horizontally: (frame width - image width) / 2
+        image.setBounds((1440 - 560) / 2, 10, 560, 300);
         add(image);
 
+
         QNumber = new JLabel(); //qno
-        QNumber.setBounds(100, 450, 50, 30);
+        QNumber.setBounds(100, 330, 50, 30);
         QNumber.setFont (new Font("Tahoma", Font.PLAIN,24));
         add(QNumber);
 
         questionLabel = new JLabel(); //question
-        questionLabel.setBounds(150, 450, 900, 30);
+        questionLabel.setBounds(150, 330, 900, 30);
         questionLabel.setFont (new Font("Tahoma", Font.PLAIN,24));
         add(questionLabel);
 
@@ -114,25 +117,25 @@ public class Quiz extends JFrame implements ActionListener {
         answers[9][2] = "Logical thinking and patience";
 
         opt1 = new JRadioButton();
-        opt1.setBounds(170, 520,700,30);
+        opt1.setBounds(170, 390,700,30);
         opt1.setBackground(Color.WHITE);
         opt1.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt1);
 
         opt2 = new JRadioButton();
-        opt2.setBounds(170, 560,700,30);
+        opt2.setBounds(170, 430,700,30);
         opt2.setBackground(Color.WHITE);
         opt2.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt2);
 
         opt3 = new JRadioButton();
-        opt3.setBounds(170, 600,700,30);
+        opt3.setBounds(170, 470,700,30);
         opt3.setBackground(Color.WHITE);
         opt3.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt3);
 
         opt4 = new JRadioButton();
-        opt4.setBounds(170, 640,700,30);
+        opt4.setBounds(170, 510,700,30);
         opt4.setBackground(Color.WHITE);
         opt4.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt4);
