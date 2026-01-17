@@ -7,6 +7,7 @@ public class Quiz extends JFrame implements ActionListener {
     String question[][] = new String[10][5];
     String answers[][] = new String[10][5];
     String userAnswers[][] = new String[10][1];
+
     JLabel QNumber, questionLabel ;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
@@ -18,10 +19,11 @@ public class Quiz extends JFrame implements ActionListener {
     public static int score = 0;
 
     String name;
+
     Quiz(String name) {
         this.name = name;
         setBounds(50, 0, 1440, 850);
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(245, 247, 240));
         setLayout(null);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz.png"));
@@ -167,9 +169,15 @@ public class Quiz extends JFrame implements ActionListener {
         add(submit);
 
         start(count);
-
         setVisible(true);
     }
+    //helper method
+   // private String getCorrectAnswer(int i) {
+     //   for (int j = 1; j <= 4; j++) {
+      //      if (answers[i][j] != null) return answers[i][j];
+     //   }
+     //   return "";
+   // }
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == nextButton) {
@@ -194,6 +202,7 @@ public class Quiz extends JFrame implements ActionListener {
 
             count++;
             start(count);
+
         } else if (ae.getSource() == lifeline) {
             if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
                 opt2.setEnabled(false);
@@ -210,13 +219,15 @@ public class Quiz extends JFrame implements ActionListener {
             } else {
                 userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
             }
+
+
             for (int i = 0; i < userAnswers.length; i++) {
-                if (userAnswers[i][0].equals(answers[i][1])) {
-                    score += 10;
-                } else {
-                    score += 0;
-                }
-            }
+               if (userAnswers[i][0].equals(answers[i][1])) {
+                  score += 10;
+               } else {
+                   score += 0;
+              }
+           }
             setVisible(false);
             new Score(name, score);
             //score
@@ -238,7 +249,7 @@ public class Quiz extends JFrame implements ActionListener {
             g.drawString("Times up!!", 1100, 500);
         }
 
-        timer --; // 15
+        timer--; // 15
 
         try {
             Thread.sleep(1000);
@@ -251,7 +262,7 @@ public class Quiz extends JFrame implements ActionListener {
             ans_given = 0;
             timer = 15;
 
-        } else if (timer < 0 ) {
+        } else if (timer < 0) {
             timer = 15;
             opt1.setEnabled(true);
             opt2.setEnabled(true);
@@ -262,6 +273,7 @@ public class Quiz extends JFrame implements ActionListener {
                 nextButton.setEnabled(false);
                 submit.setEnabled(true);
             }
+
             if (count == 9) { // submit button
                 if (groupoptions.getSelection() == null) {
                     userAnswers[count][0] = "";
@@ -269,25 +281,27 @@ public class Quiz extends JFrame implements ActionListener {
                     userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
                 }
 
-                for (int i = 0; i < userAnswers.length; i++){
-                   if (userAnswers[i][0].equals(answers[i][1])) {
-                       score += 10;
-                   } else {
-                       score += 0;
-                   }
-                } setVisible(false);
+                for (int i = 0; i < userAnswers.length; i++) {
+                    if (userAnswers[i][0].equals(answers[i][1])) {
+                        score += 10;
+                    } else {
+                        score += 0;
+                    }
+                }
+                setVisible(false);
                 new Score(name, score);
             } else { //next button
-            if (groupoptions.getSelection() == null) {
-              userAnswers[count][0] = "";
-            } else {
-                userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
+                if (groupoptions.getSelection() == null) {
+                    userAnswers[count][0] = "";
+                } else {
+                    userAnswers[count][0] = groupoptions.getSelection().getActionCommand();
+                }
+                count++; //0 //1
+                start(count);
+
             }
-            count++; //0 //1
-            start(count);
 
         }
-
     }
 
 
