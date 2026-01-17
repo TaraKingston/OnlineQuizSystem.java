@@ -22,8 +22,10 @@ public class Quiz extends JFrame implements ActionListener {
 
     Quiz(String name) {
         this.name = name;
-        setBounds(50, 0, 1440, 850);
-        getContentPane().setBackground(new Color(245, 247, 240));
+       // setBounds(50, 0, 1440, 850);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocation(0, 0);
+        getContentPane().setBackground(new Color(214, 234, 248));
         setLayout(null);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz_icon.png"));
@@ -117,28 +119,40 @@ public class Quiz extends JFrame implements ActionListener {
         answers[9][2] = "Logical thinking and patience";
 
         opt1 = new JRadioButton();
-        opt1.setBounds(170, 390,700,30);
+        opt1.setBounds(170, 390,700,40);
         opt1.setBackground(Color.WHITE);
         opt1.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt1);
 
         opt2 = new JRadioButton();
-        opt2.setBounds(170, 430,700,30);
+        opt2.setBounds(170, 430,700,40);
         opt2.setBackground(Color.WHITE);
         opt2.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt2);
 
         opt3 = new JRadioButton();
-        opt3.setBounds(170, 470,700,30);
+        opt3.setBounds(170, 470,700,40);
         opt3.setBackground(Color.WHITE);
         opt3.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt3);
 
         opt4 = new JRadioButton();
-        opt4.setBounds(170, 510,700,30);
+        opt4.setBounds(170, 510,700,40);
         opt4.setBackground(Color.WHITE);
         opt4.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt4);
+
+        Font optionFont = new Font("Dialog", Font.PLAIN, 20);
+        opt1.setFont(optionFont);
+        opt2.setFont(optionFont);
+        opt3.setFont(optionFont);
+        opt4.setFont(optionFont);
+
+        Color bg = getContentPane().getBackground();
+        opt1.setBackground(bg);
+        opt2.setBackground(bg);
+        opt3.setBackground(bg);
+        opt4.setBackground(bg);
 
         groupoptions = new ButtonGroup();
         groupoptions.add(opt1);
@@ -147,28 +161,34 @@ public class Quiz extends JFrame implements ActionListener {
         groupoptions.add(opt4);
 
         nextButton = new JButton("Next");
-        nextButton.setBounds(1100, 550, 200, 40);
+        nextButton.setBounds(1000, 410, 200, 40);
         nextButton.setFont (new Font("Tahoma", Font.PLAIN, 22));
         nextButton.setBackground(new Color(30, 144, 255));
         nextButton.setForeground(Color.WHITE);
         nextButton.addActionListener(this);
+        nextButton.setFocusPainted(false);
+        nextButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(nextButton);
 
         lifeline = new JButton("50 50 lifeline");
-        lifeline.setBounds(1100, 630, 200, 40);
+        lifeline.setBounds(1000, 470, 200, 40);
         lifeline.setFont (new Font("Tahoma", Font.PLAIN, 22));
         lifeline.setBackground(new Color(30, 144, 255));
         lifeline.setForeground(Color.WHITE);
         lifeline.addActionListener(this);
+        lifeline.setFocusPainted(false);
+        lifeline.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(lifeline);
 
         submit = new JButton("Submit");
-        submit.setBounds(1100, 710, 200, 40);
+        submit.setBounds(1000, 530, 200, 40);
         submit.setFont (new Font("Tahoma", Font.PLAIN, 22));
         submit.setBackground(new Color(30, 144, 255));
         submit.setForeground(Color.WHITE);
         submit.addActionListener(this);
         submit.setEnabled(false);
+        submit.setFocusPainted(false);
+        submit.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(submit);
 
         start(count);
@@ -247,9 +267,9 @@ public class Quiz extends JFrame implements ActionListener {
         g.setFont(new Font("Tahoma", Font.BOLD, 25));
 
         if (timer > 0) {
-            g.drawString(time, 1100, 500);
+            g.drawString(time, 1000, 386);
         } else {
-            g.drawString("Times up!!", 1100, 500);
+            g.drawString("Times up!!", 1000, 386);
         }
 
         timer--; // 15

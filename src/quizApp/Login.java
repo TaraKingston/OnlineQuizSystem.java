@@ -9,7 +9,7 @@ public class Login extends JFrame implements ActionListener {
     JButton rules, back;
     JTextField tfname;
     Login() {
-        getContentPane().setBackground(new Color(55, 40, 95));
+        getContentPane().setBackground(new Color(214, 234, 248));
         setLayout(null);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("quizApp/icons/quiz.png"));
@@ -20,13 +20,13 @@ public class Login extends JFrame implements ActionListener {
         JLabel heading = new JLabel("The Quiz!");
         heading.setBounds(775, 60, 300, 45);
         heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 55));
-        heading.setForeground(Color.green);
+        heading.setForeground(new Color(25, 70, 140));
         add(heading);
 
         JLabel name = new JLabel("Enter your name");
         name.setBounds(810, 150, 300, 20);
         name.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
-        name.setForeground(Color.green);
+        name.setForeground(new Color(25, 70, 140));
         add(name);
 
         tfname = new JTextField();
@@ -39,6 +39,8 @@ public class Login extends JFrame implements ActionListener {
         rules.setBackground(new Color(30, 144, 254));
         rules.setForeground(Color.WHITE);
         rules.addActionListener(this);
+        rules.setFocusPainted(false);
+        rules.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(rules);
 
         back = new JButton("Back");
@@ -46,12 +48,14 @@ public class Login extends JFrame implements ActionListener {
         back.setBackground(new Color(30, 144, 254));
         back.setForeground(Color.WHITE);
         back.addActionListener(this);
+        back.setFocusPainted(false);
+        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(back);
 
 
 
-        setSize(1200, 500);
-        setLocation(200, 150);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocation(0, 0);
         setVisible(true);
     }
 
