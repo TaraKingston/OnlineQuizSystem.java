@@ -231,7 +231,7 @@ public class Quiz extends JFrame implements ActionListener {
          //       opt2.setEnabled(false);
          //       opt3.setEnabled(false);
          //   } else {
-           //     opt1.setEnabled(true);
+            //     opt1.setEnabled(true);
          //       opt4.setEnabled(true);
           //  }
             // lifeline.setEnabled(false);
