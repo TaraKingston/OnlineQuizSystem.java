@@ -18,24 +18,27 @@ public class Login extends JFrame implements ActionListener {
         add(image);
 
         JLabel heading = new JLabel("The Quiz!");
-        heading.setBounds(775, 60, 300, 45);
-        heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 55));
+        heading.setBounds(690, 30, 900, 160);
+        heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 100));
         heading.setForeground(new Color(25, 70, 140));
         add(heading);
 
         JLabel name = new JLabel("Enter your name");
-        name.setBounds(810, 150, 300, 20);
-        name.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
+        //set middle
+        name.setBounds(745, 210, 900, 50);
+        name.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 36));
         name.setForeground(new Color(25, 70, 140));
         add(name);
 
         tfname = new JTextField();
-        tfname.setBounds(735, 200, 300, 25);
-        tfname.setFont(new Font("Arial", Font.BOLD, 20));
+        tfname.setBounds(540, 280, 720, 55);
+        tfname.setFont(new Font("Arial", Font.BOLD, 32));
+        tfname.setHorizontalAlignment(JTextField.CENTER);
         add(tfname);
 
-        rules = new JButton("Rules");
-        rules.setBounds(735, 270, 120, 25);
+        rules = new JButton("Start");
+        rules.setFont(new Font("Tahoma", Font.BOLD, 28));
+        rules.setBounds(765, 390, 260, 55);
         rules.setBackground(new Color(30, 144, 254));
         rules.setForeground(Color.WHITE);
         rules.addActionListener(this);
@@ -43,14 +46,15 @@ public class Login extends JFrame implements ActionListener {
         rules.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(rules);
 
-        back = new JButton("Back");
-        back.setBounds(915, 270, 120, 25);
-        back.setBackground(new Color(30, 144, 254));
-        back.setForeground(Color.WHITE);
-        back.addActionListener(this);
-        back.setFocusPainted(false);
-        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        add(back);
+        //back = new JButton("Back");
+       // back.setFont(new Font("Tahoma", Font.BOLD, 28));
+       // back.setBounds(930, 390, 260, 55);
+       // back.setBackground(new Color(30, 144, 254));
+      //  back.setForeground(Color.WHITE);
+       // back.addActionListener(this);
+       // back.setFocusPainted(false);
+       // back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+       // add(back);
 
 
 
