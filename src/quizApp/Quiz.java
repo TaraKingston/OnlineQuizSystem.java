@@ -226,15 +226,38 @@ public class Quiz extends JFrame implements ActionListener {
             count++;
             start(count);
 
+       // } else if (ae.getSource() == lifeline) {
+         //   if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
+         //       opt2.setEnabled(false);
+         //       opt3.setEnabled(false);
+         //   } else {
+           //     opt1.setEnabled(true);
+         //       opt4.setEnabled(true);
+          //  }
+            // lifeline.setEnabled(false);
+
         } else if (ae.getSource() == lifeline) {
-            if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
+
+            opt1.setEnabled(true);
+            opt2.setEnabled(true);
+            opt3.setEnabled(true);
+            opt4.setEnabled(true);
+
+            if (count == 3) { // Question 4
+                opt1.setEnabled(false);
                 opt2.setEnabled(false);
-                opt3.setEnabled(false);
             } else {
-                opt1.setEnabled(true);
-                opt4.setEnabled(true);
+                opt1.setEnabled(false);
+                opt3.setEnabled(false);
             }
+
             lifeline.setEnabled(false);
+            lifeline.setBackground(Color.LIGHT_GRAY);
+            lifeline.setForeground(Color.DARK_GRAY);
+            lifeline.setText("50/50 used");
+
+
+
         } else if (ae.getSource() == submit) {
             ans_given = 1;
             if (groupoptions.getSelection() == null) {

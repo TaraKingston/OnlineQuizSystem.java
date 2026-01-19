@@ -10,18 +10,18 @@ public class Rules extends JFrame implements ActionListener {
     JButton start, back;
     Rules(String name) {
         this.name = name;
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(214, 234, 248));
         setLayout(null);
 
         JLabel heading = new JLabel("Welcome " + name + " to the quiz. ");
-        heading.setBounds(50, 20, 700, 30);
-        heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 28));
-        heading.setForeground(Color.green);
+        heading.setBounds(450, 30, 1600, 120);
+        heading.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 40));
+        heading.setForeground(new Color(25, 70, 140));
         add(heading);
 
         JLabel rules = new JLabel();
-        rules.setBounds(20, 90, 700, 350);
-        rules.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
+        rules.setBounds(250, 80, 1100, 520);
+        rules.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
         rules.setText(
                 "<html>" +
                         "<h2>Quiz Rules</h2>" +
@@ -38,22 +38,26 @@ public class Rules extends JFrame implements ActionListener {
         add(rules);
 
         back = new JButton("Back");
-        back.setBounds(250, 500, 100, 30);
-        back.setBackground(new Color(30, 144, 254));
+        back.setBounds(250, 570, 260, 55);
+        back.setBackground(new Color(52, 120, 210));
         back.setForeground(Color.WHITE);
+        back.setFont(new Font("Tahoma", Font.BOLD, 26));
+        back.setFocusPainted(false);
         back.addActionListener(this);
         add(back);
 
 
         start = new JButton("Start");
-        start.setBounds(400, 500, 100, 30);
-        start.setBackground(new Color(30, 144, 254));
+        start.setBounds(550, 570, 260, 55);
+        start.setBackground(new Color(52, 120, 210));
         start.setForeground(Color.WHITE);
+        start.setFont(new Font("Tahoma", Font.BOLD, 26));
+        start.setFocusPainted(false);
         start.addActionListener(this);
         add(start);
 
-        setSize(800, 650);
-        setLocation(300, 250);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocation(0, 0);
         setVisible(true);
     }
 
