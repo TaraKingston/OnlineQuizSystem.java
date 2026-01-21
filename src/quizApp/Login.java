@@ -46,7 +46,7 @@ public class Login extends JFrame implements ActionListener {
         rules.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(rules);
 
-        //back = new JButton("Back");
+        // back = new JButton("Back");
        // back.setFont(new Font("Tahoma", Font.BOLD, 28));
        // back.setBounds(930, 390, 260, 55);
        // back.setBackground(new Color(30, 144, 254));

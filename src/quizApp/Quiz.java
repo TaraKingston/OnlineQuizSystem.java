@@ -107,16 +107,16 @@ public class Quiz extends JFrame implements ActionListener {
         question[9][3] = "Guessing randomly";
         question[9][4] = "Copying code blindly";
 
-        answers[0][2] = "To organise code using objects and classes";
-        answers[1][2] = "Encapsulation";
-        answers[2][2] = "It improves code organisation and readability";
-        answers[3][3] = "JLabel";
-        answers[4][2] = "It is more user-friendly and visually appealing";
-        answers[5][2] = "Allows one class to inherit another class";
-        answers[6][2] = "To prevent the program from crashing unexpectedly";
-        answers[7][2] = "To track changes and manage code versions";
-        answers[8][2] = "To make maintenance and updates easier";
-        answers[9][2] = "Logical thinking and patience";
+        answers[0][1] = "To organise code using objects and classes";
+        answers[1][1] = "Encapsulation";
+        answers[2][1] = "It improves code organisation and readability";
+        answers[3][1] = "JLabel";
+        answers[4][1] = "It is more user-friendly and visually appealing";
+        answers[5][1] = "Allows one class to inherit another class";
+        answers[6][1] = "To prevent the program from crashing unexpectedly";
+        answers[7][1] = "To track changes and manage code versions";
+        answers[8][1] = "To make maintenance and updates easier";
+        answers[9][1] = "Logical thinking and patience";
 
         opt1 = new JRadioButton();
         opt1.setBounds(170, 390,700,40);
