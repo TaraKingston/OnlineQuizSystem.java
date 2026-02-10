@@ -19,14 +19,11 @@
 
 ## Project Structure
 quizApp/
-├── Login.java      # Login screen
-├── Rules.java      # Rules display
-├── Quiz.java       # Main quiz logic
-├── Score.java      # Score screen
-└── icons/          # Image resources
+- ├── Login.java      # Login screen
+- ├── Rules.java      # Rules display
+- ├── Quiz.java       # Main quiz logic
+- ├── Score.java      # Score screen
+- └── icons/          # Image resources
+  
 ## Built With
 - Java, Swing GUI, Awt Event handling
-
-Java
-Swing (GUI)
-AWT (Event handling)
